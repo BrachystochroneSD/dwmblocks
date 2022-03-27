@@ -1,5 +1,6 @@
-# dwmblocks-async
+# My Fork of dwmblocks-async
 A modular statusbar for `dwm` written in C. You may think of it as `i3blocks`, but for `dwm`.
+This is my fork, see https://github.com/UtkarshVerma/dwmblocks-async.git for original. Thanks to him.
 
 ![A lean config of dwmblocks-async.](preview.png)
 
@@ -24,7 +25,7 @@ while :; do
 done
 ```
 
-It may not look bad as it is, but it's surely not the most efficient way when you've got to run multiple commands, out of which only few need to be updated as frequently as the others. 
+It may not look bad ahttps://github.com/UtkarshVerma/dwmblocks-async.gits it is, but it's surely not the most efficient way when you've got to run multiple commands, out of which only few need to be updated as frequently as the others.
 
 ```sh
 # Displaying an unread mail count in the status bar
@@ -36,7 +37,7 @@ done
 
 For example, I display an unread mail count in my statusbar. Ideally, I would want this count to update every thirty minutes, but since I also have a clock in my statusbar which has to be updated every minute, I can't stop the mail count from being updated every minute.
 
-As you can see, this is wasteful. And since my mail count script uses Gmail's APIs, there's a limit to the number of requests I can make, being a free user.  
+As you can see, this is wasteful. And since my mail count script uses Gmail's APIs, there's a limit to the number of requests I can make, being a free user.
 
 What `dwmblocks` does is that it allows you to break up the statusbar into multiple blocks, each of which have their own update interval. The commands in a particular block are only executed once in that interval. Hence, we don't run into our problem anymore.
 
@@ -128,14 +129,14 @@ Apart from that, you need `dwm` to be patched with [statuscmd](https://dwm.suckl
 Because `dwmblocks-async` creates a child process, it messes up the way the original `statuscmd` patch gets the PID of statusbar. It is necessary to modify the following lines in the definition of `getstatusbarpid()`.
 
 ```diff
-				return statuspid;
-		}
-	}
--	if (!(fp = popen("pidof -s "STATUSBAR, "r")))
-+	if (!(fp = popen("pgrep -o "STATUSBAR, "r")))
-		return -1;
-	fgets(buf, sizeof(buf), fp);
-	pclose(fp);
+                return statuspid;
+        }
+    }
+-   if (!(fp = popen("pidof -s "STATUSBAR, "r")))
++   if (!(fp = popen("pgrep -o "STATUSBAR, "r")))
+        return -1;
+    fgets(buf, sizeof(buf), fp);
+    pclose(fp);
 ```
 
 This modification is backwards-compatible with other versions of `dwmblocks` as well.
