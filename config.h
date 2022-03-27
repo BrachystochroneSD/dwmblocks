@@ -1,16 +1,18 @@
 #define CMDLENGTH 60
-#define DELIMITER "  "
-#define CLICKABLE_BLOCKS
+#define DELIMITER " | "
+/* #define CLICKABLE_BLOCKS */
 
 const Block blocks[] = {
-	BLOCK("sb-mail",    1800, 17),
-	BLOCK("sb-music",   0,    18),
-	BLOCK("sb-disk",    1800, 19),
-	BLOCK("sb-memory",  10,   20),
-	BLOCK("sb-loadavg", 5,    21),
-	BLOCK("sb-mic",     0,    26),
-	BLOCK("sb-record",  0,    27),
-	BLOCK("sb-volume",  0,    22),
-	BLOCK("sb-battery", 5,    23),
-	BLOCK("sb-date",    1,    24)
+    BLOCK("/home/sam/.script/bar/mails",    10,    1),
+    BLOCK("/home/sam/.script/bar/music",    1,    8),
+    BLOCK("/home/sam/.script/bar/update",    1000,    1),
+    BLOCK("/home/sam/.script/bar/note/notescript",    2,    1),
+    BLOCK("/home/sam/.script/bar/wifi",    1,    1),
+    BLOCK("/home/sam/.script/bar/weatherdir/weather",    1800,    1),
+    BLOCK("/home/sam/.script/bar/filesys",    25,    1),
+    BLOCK("/home/sam/.script/bar/cpu",    2,    1),
+    BLOCK("/home/sam/.script/bar/temp",    1,    1),
+    BLOCK("/home/sam/.script/bar/memram",    1,    1),
+    BLOCK("/home/sam/.script/bar/battery",    1,    1),
+    BLOCK("LC_ALL=fr_BE /usr/bin/date '+%A %d/%m %H:%M'",    1,    1),
 };
