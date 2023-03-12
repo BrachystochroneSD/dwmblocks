@@ -3,6 +3,7 @@
 /* #define CLICKABLE_BLOCKS */
 
 const Block blocks[] = {
+    BLOCK("/home/sam/.script/bar/recording",    1,    1),
     BLOCK("/home/sam/.script/bar/mails",    10,    1),
     BLOCK("/home/sam/.script/bar/music",    1,    8),
     BLOCK("/home/sam/.script/bar/update",    1000,    1),
