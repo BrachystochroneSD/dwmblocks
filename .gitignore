@@ -1,2 +1,5 @@
 *.o
 dwmblocks
+/pkg/
+/src/
+*.zst
